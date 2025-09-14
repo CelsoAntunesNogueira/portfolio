@@ -152,6 +152,72 @@ h2 {
     margin: 10px 0;
 }
 
+/* --- Seção Acadêmica --- */
+#academico {
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+    /* fundo suave pra diferenciar */
+    border-top: 2px solid #c72fcc20;
+}
+
+#academico h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #c72fcc;
+}
+
+.academico {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.academico div {
+    flex: 1 1 250px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.academico div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.academico h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #333;
+    border-bottom: 2px solid #c72fcc50;
+    padding-bottom: 5px;
+}
+
+.academico ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.academico ul li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+/* Bolinha decorativa antes dos itens */
+.academico ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #c72fcc;
+    font-weight: bold;
+}
 /* ===== Footer ===== */
 footer {
     background: #fff;
