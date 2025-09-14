@@ -1,0 +1,192 @@
+/* Fonte e reset básico */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background: #f8f9fa;
+    color: #333;
+}
+
+/* ===== Header ===== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 15px 40px;
+    z-index: 1000;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+header nav ul li {
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+header nav ul li:hover {
+    color: #1613dd;
+}
+
+.fa-brands {
+    font-size: 22px;
+    transition: transform 0.2s, color 0.3s;
+}
+
+.fa-brands:hover {
+    transform: scale(1.2);
+    color: #1613dd;
+}
+
+/* ===== Hero / Apresentação ===== */
+.apresentacao {
+    height: 100vh;
+    background-image: url('../images/image.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    padding: 0 20px;
+}
+
+.apresentacao::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.apresentacao h1,
+.apresentacao p {
+    position: relative;
+    z-index: 1;
+}
+
+.apresentacao h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.apresentacao p {
+    max-width: 700px;
+    font-size: 1.2rem;
+}
+
+/* ===== Seções ===== */
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 80px 0 40px;
+    color: #222;
+}
+
+/* ===== Experiências / Projetos (Cards) ===== */
+.experiencias,
+.projetos {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 40px 40px;
+}
+
+.experiencias div,
+.projetos div {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    flex: 1 1 280px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.experiencias div:hover,
+.projetos div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.img-experiencias {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+/* Ícones dos projetos */
+.projetos i {
+    font-size: 80px;
+    color: #1c11b9;
+    margin-bottom: 15px;
+}
+
+.projetos a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.projetos h3 {
+    margin: 10px 0;
+}
+
+/* ===== Footer ===== */
+footer {
+    background: #fff;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+    margin-top: 60px;
+}
+
+footer p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 768px) {
+    .apresentacao h1 {
+        font-size: 2rem;
+    }
+
+    .apresentacao p {
+        font-size: 1rem;
+    }
+
+    header {
+        padding: 10px 20px;
+    }
+}
+/* Botão do zap */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    /* Ajuste a posição vertical conforme necessário */
+    right: 20px;
+    /* Ajuste a posição horizontal conforme necessário */
+    z-index: 999;
+    
+}
