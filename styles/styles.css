@@ -151,7 +151,6 @@ header nav ul li:hover a {
 .apresentacao {
     height: 100vh;
     /* Considere usar uma imagem de fundo que funcione bem em ambos os temas, ou usar filtros */
-    background-image: url('../images/image.png');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -163,7 +162,7 @@ header nav ul li:hover a {
     position: relative;
     padding: 0 40px;
     gap: 40px;/* espaço entre foto e texto */
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .foto {
@@ -174,8 +173,6 @@ header nav ul li:hover a {
     z-index: 998;
     object-fit: cover;
     border: 4px solid white;
-    bottom: 400px;
-    left: 800px;
 }
 
 .apresentacao::before {
