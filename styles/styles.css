@@ -1,6 +1,82 @@
 /* Fonte e reset básico */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
+/* Variáveis de cores para o tema claro (padrão) */
+:root {
+    --bg-primary: #f8f9fa;
+    /* Fundo principal claro */
+    --text-primary: #333;
+    /* Cor do texto principal claro */
+    --header-bg: #fff;
+    /* Fundo do header claro */
+    --header-text: #333;
+    /* Cor do texto do header claro */
+    --header-link-hover: #1613dd;
+    /* Hover dos links do header claro */
+    --card-bg: #fff;
+    /* Fundo dos cards claro */
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    /* Sombra dos cards claro */
+    --h2-color: #222;
+    /* Cor dos títulos h2 claro */
+    --academico-h2-color: #c72fcc;
+    /* Cor do h2 acadêmico claro */
+    --academico-div-bg: white;
+    /* Fundo div acadêmico claro */
+    --academico-h3-color: #333;
+    /* Cor h3 acadêmico claro */
+    --academico-li-color: #444;
+    /* Cor li acadêmico claro */
+    --footer-bg: #fff;
+    /* Fundo do footer claro */
+    --footer-text: #666;
+    /* Cor do texto do footer claro */
+    --projetos-icon-color: #1c11b9;
+    /* Cor dos ícones de projeto claro */
+    --button-theme-color: inherit;
+    /* Cor do botão de tema claro (herda do pai) */
+    --button-theme-hover-color: #1613dd;
+    /* Cor do hover do botão de tema claro */
+}
+
+/* Variáveis de cores para o tema escuro */
+body[data-theme="dark"] {
+    --bg-primary: #1a1a2e;
+    /* Fundo principal escuro */
+    --text-primary: #e0e0e0;
+    /* Cor do texto principal escuro */
+    --header-bg: #22223b;
+    /* Fundo do header escuro */
+    --header-text: #f0f0f0;
+    /* Cor do texto do header escuro */
+    --header-link-hover: #00bcd4;
+    /* Hover dos links do header escuro */
+    --card-bg: #2c2c4d;
+    /* Fundo dos cards escuro */
+    --card-shadow: rgba(0, 0, 0, 0.3);
+    /* Sombra dos cards escuro */
+    --h2-color: #f0f0f0;
+    /* Cor dos títulos h2 escuro */
+    --academico-h2-color: #a44cd3;
+    /* Cor do h2 acadêmico escuro */
+    --academico-div-bg: #3a3a5e;
+    /* Fundo div acadêmico escuro */
+    --academico-h3-color: #f0f0f0;
+    /* Cor h3 acadêmico escuro */
+    --academico-li-color: #d0d0d0;
+    /* Cor li acadêmico escuro */
+    --footer-bg: #22223b;
+    /* Fundo do footer escuro */
+    --footer-text: #b0b0b0;
+    /* Cor do texto do footer escuro */
+    --projetos-icon-color: #00bcd4;
+    /* Cor dos ícones de projeto escuro */
+    --button-theme-color: inherit;
+    /* Cor do botão de tema escuro (herda do pai) */
+    --button-theme-hover-color: #00bcd4;
+    /* Cor do hover do botão de tema escuro */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,8 +86,12 @@
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    background: #f8f9fa;
-    color: #333;
+    background: var(--bg-primary);
+    /* Usa a variável */
+    color: var(--text-primary);
+    /* Usa a variável */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Transição suave */
 }
 
 /* ===== Header ===== */
@@ -20,8 +100,10 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: var(--header-bg);
+    /* Usa a variável */
+    box-shadow: 0 2px 8px var(--card-shadow);
+    /* Usa a variável de sombra */
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -40,34 +122,60 @@ header nav ul li {
     transition: color 0.3s;
 }
 
-header nav ul li:hover {
-    color: #1613dd;
+header nav ul li a {
+    /* Adicionado para garantir que os links herdem a cor */
+    color: var(--header-text);
+    text-decoration: none;
 }
 
+header nav ul li:hover a {
+    /* Hover para links da nav */
+    color: var(--header-link-hover);
+}
+
+
 .fa-brands {
+    /* Ícones sociais */
     font-size: 22px;
     transition: transform 0.2s, color 0.3s;
+    color: var(--header-text);
+    /* Garante que os ícones sociais mudem de cor */
 }
 
 .fa-brands:hover {
     transform: scale(1.2);
-    color: #1613dd;
+    color: var(--header-link-hover);
 }
 
 /* ===== Hero / Apresentação ===== */
 .apresentacao {
     height: 100vh;
+    /* Considere usar uma imagem de fundo que funcione bem em ambos os temas, ou usar filtros */
     background-image: url('../images/image.png');
     background-size: cover;
     background-position: center;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: left;
     color: white;
+    /* Mantém branco para legibilidade sobre a imagem */
     position: relative;
-    padding: 0 20px;
+    padding: 0 40px;
+    gap: 40px;/* espaço entre foto e texto */
+    flex-direction: column;
+}
+
+.foto {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    z-index: 998;
+    object-fit: cover;
+    border: 4px solid white;
+    bottom: 400px;
+    left: 800px;
 }
 
 .apresentacao::before {
@@ -75,6 +183,7 @@ header nav ul li:hover {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
+    /* Overlay para legibilidade */
 }
 
 .apresentacao h1,
@@ -98,7 +207,9 @@ h2 {
     text-align: center;
     font-size: 2rem;
     margin: 80px 0 40px;
-    color: #222;
+    color: var(--h2-color);
+    /* Usa a variável */
+    transition: color 0.3s ease;
 }
 
 /* ===== Experiências / Projetos (Cards) ===== */
@@ -113,19 +224,25 @@ h2 {
 
 .experiencias div,
 .projetos div {
-    background: #fff;
+    background: var(--card-bg);
+    /* Usa a variável */
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--card-shadow);
+    /* Usa a variável */
     padding: 25px;
     flex: 1 1 280px;
     text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+    /* Transição suave */
+    color: var(--text-primary);
+    /* Garante que o texto dentro do card mude */
 }
 
 .experiencias div:hover,
 .projetos div:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 12px var(--card-shadow);
+    /* Usa a variável */
 }
 
 .img-experiencias {
@@ -138,13 +255,16 @@ h2 {
 /* Ícones dos projetos */
 .projetos i {
     font-size: 80px;
-    color: #1c11b9;
+    color: var(--projetos-icon-color);
+    /* Usa a variável */
     margin-bottom: 15px;
+    transition: color 0.3s ease;
 }
 
 .projetos a {
     text-decoration: none;
     color: inherit;
+    /* Herda a cor do div pai */
     display: block;
 }
 
@@ -155,16 +275,20 @@ h2 {
 /* --- Seção Acadêmica --- */
 #academico {
     padding: 50px 20px;
-    background-color: #f8f9fa;
-    /* fundo suave pra diferenciar */
+    background-color: var(--bg-primary);
+    /* Fundo suave pra diferenciar */
     border-top: 2px solid #c72fcc20;
+    /* Manter cor fixa ou adicionar variável se quiser mudar */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #academico h2 {
     text-align: center;
     margin-bottom: 30px;
     font-size: 2rem;
-    color: #c72fcc;
+    color: var(--academico-h2-color);
+    /* Usa a variável */
+    transition: color 0.3s ease;
 }
 
 .academico {
@@ -176,24 +300,32 @@ h2 {
 
 .academico div {
     flex: 1 1 250px;
-    background: white;
+    background: var(--academico-div-bg);
+    /* Usa a variável */
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px var(--card-shadow);
+    /* Usa a variável */
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+    color: var(--text-primary);
+    /* Garante que o texto dentro do card mude */
 }
 
 .academico div:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 16px var(--card-shadow);
+    /* Usa a variável */
 }
 
 .academico h3 {
     font-size: 1.3rem;
     margin-bottom: 15px;
-    color: #333;
+    color: var(--academico-h3-color);
+    /* Usa a variável */
     border-bottom: 2px solid #c72fcc50;
+    /* Manter fixa ou adicionar variável */
     padding-bottom: 5px;
+    transition: color 0.3s ease;
 }
 
 .academico ul {
@@ -206,8 +338,10 @@ h2 {
     margin-bottom: 10px;
     padding-left: 20px;
     position: relative;
-    color: #444;
+    color: var(--academico-li-color);
+    /* Usa a variável */
     font-size: 0.95rem;
+    transition: color 0.3s ease;
 }
 
 /* Bolinha decorativa antes dos itens */
@@ -215,21 +349,29 @@ h2 {
     content: "•";
     position: absolute;
     left: 0;
-    color: #c72fcc;
+    color: var(--academico-h2-color);
+    /* Usa a variável */
     font-weight: bold;
+    transition: color 0.3s ease;
 }
+
 /* ===== Footer ===== */
 footer {
-    background: #fff;
+    background: var(--footer-bg);
+    /* Usa a variável */
     padding: 30px;
     text-align: center;
-    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 -2px 8px var(--card-shadow);
+    /* Usa a variável */
     margin-top: 60px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 footer p {
-    color: #666;
+    color: var(--footer-text);
+    /* Usa a variável */
     font-size: 0.9rem;
+    transition: color 0.3s ease;
 }
 
 /* ===== Responsividade ===== */
@@ -246,13 +388,51 @@ footer p {
         padding: 10px 20px;
     }
 }
+
 /* Botão do zap */
 .whatsapp-button {
     position: fixed;
     bottom: 20px;
-    /* Ajuste a posição vertical conforme necessário */
     right: 20px;
-    /* Ajuste a posição horizontal conforme necessário */
     z-index: 999;
-    
+}
+
+/* Estilos para o botão de toggle de tema */
+.theme-toggle-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    /* Ajuste o tamanho do ícone */
+    cursor: pointer;
+    color: var(--button-theme-color);
+    /* Cor do botão, pode ser inherit ou uma variável */
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+.theme-toggle-button:hover {
+    color: var(--button-theme-hover-color);
+}
+
+/* Ajustes para os ícones de sol/lua */
+.theme-toggle-button .icon-light,
+.theme-toggle-button .icon-dark {
+    display: inline-block;
+    /* Garante que ambos os ícones ocupem espaço inicialmente para evitar saltos */
+    /* Você pode ajustar o tamanho ou a cor específica para o ícone aqui se quiser */
+}
+
+/* Esconder um dos ícones baseado no tema (será controlado pelo JS) */
+body[data-theme="light"] .icon-dark {
+    display: none;
+}
+
+body[data-theme="dark"] .icon-light {
+    display: none;
+}
+
+/* Se precisar de estilos específicos para a imagem de fundo na apresentação no modo escuro */
+body[data-theme="dark"] .apresentacao::before {
+    background: rgba(0, 0, 0, 0.7);
+    /* Torna o overlay mais escuro no modo escuro */
 }
