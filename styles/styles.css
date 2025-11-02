@@ -4,77 +4,43 @@
 /* Variáveis de cores para o tema claro (padrão) */
 :root {
     --bg-primary: #f8f9fa;
-    /* Fundo principal claro */
     --text-primary: #333;
-    /* Cor do texto principal claro */
     --header-bg: #fff;
-    /* Fundo do header claro */
     --header-text: #333;
-    /* Cor do texto do header claro */
     --header-link-hover: #1613dd;
-    /* Hover dos links do header claro */
     --card-bg: #fff;
-    /* Fundo dos cards claro */
     --card-shadow: rgba(0, 0, 0, 0.1);
-    /* Sombra dos cards claro */
     --h2-color: #222;
-    /* Cor dos títulos h2 claro */
     --academico-h2-color: #c72fcc;
-    /* Cor do h2 acadêmico claro */
     --academico-div-bg: white;
-    /* Fundo div acadêmico claro */
     --academico-h3-color: #333;
-    /* Cor h3 acadêmico claro */
     --academico-li-color: #444;
-    /* Cor li acadêmico claro */
     --footer-bg: #fff;
-    /* Fundo do footer claro */
     --footer-text: #666;
-    /* Cor do texto do footer claro */
     --projetos-icon-color: #1c11b9;
-    /* Cor dos ícones de projeto claro */
     --button-theme-color: inherit;
-    /* Cor do botão de tema claro (herda do pai) */
     --button-theme-hover-color: #1613dd;
-    /* Cor do hover do botão de tema claro */
 }
 
 /* Variáveis de cores para o tema escuro */
 body[data-theme="dark"] {
     --bg-primary: #1a1a2e;
-    /* Fundo principal escuro */
     --text-primary: #e0e0e0;
-    /* Cor do texto principal escuro */
     --header-bg: #22223b;
-    /* Fundo do header escuro */
     --header-text: #f0f0f0;
-    /* Cor do texto do header escuro */
     --header-link-hover: #00bcd4;
-    /* Hover dos links do header escuro */
     --card-bg: #2c2c4d;
-    /* Fundo dos cards escuro */
     --card-shadow: rgba(0, 0, 0, 0.3);
-    /* Sombra dos cards escuro */
     --h2-color: #f0f0f0;
-    /* Cor dos títulos h2 escuro */
     --academico-h2-color: #a44cd3;
-    /* Cor do h2 acadêmico escuro */
     --academico-div-bg: #3a3a5e;
-    /* Fundo div acadêmico escuro */
     --academico-h3-color: #f0f0f0;
-    /* Cor h3 acadêmico escuro */
     --academico-li-color: #d0d0d0;
-    /* Cor li acadêmico escuro */
     --footer-bg: #22223b;
-    /* Fundo do footer escuro */
     --footer-text: #b0b0b0;
-    /* Cor do texto do footer escuro */
     --projetos-icon-color: #00bcd4;
-    /* Cor dos ícones de projeto escuro */
     --button-theme-color: inherit;
-    /* Cor do botão de tema escuro (herda do pai) */
     --button-theme-hover-color: #00bcd4;
-    /* Cor do hover do botão de tema escuro */
 }
 
 * {
@@ -87,11 +53,8 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     background: var(--bg-primary);
-    /* Usa a variável */
     color: var(--text-primary);
-    /* Usa a variável */
     transition: background-color 0.3s ease, color 0.3s ease;
-    /* Transição suave */
 }
 
 /* ===== Header ===== */
@@ -101,9 +64,7 @@ header {
     left: 0;
     width: 100%;
     background: var(--header-bg);
-    /* Usa a variável */
     box-shadow: 0 2px 8px var(--card-shadow);
-    /* Usa a variável de sombra */
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -115,6 +76,8 @@ header nav ul {
     list-style: none;
     display: flex;
     gap: 25px;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 header nav ul li {
@@ -123,23 +86,19 @@ header nav ul li {
 }
 
 header nav ul li a {
-    /* Adicionado para garantir que os links herdem a cor */
     color: var(--header-text);
     text-decoration: none;
+    white-space: nowrap;
 }
 
 header nav ul li:hover a {
-    /* Hover para links da nav */
     color: var(--header-link-hover);
 }
 
-
 .fa-brands {
-    /* Ícones sociais */
     font-size: 22px;
     transition: transform 0.2s, color 0.3s;
     color: var(--header-text);
-    /* Garante que os ícones sociais mudem de cor */
 }
 
 .fa-brands:hover {
@@ -149,8 +108,7 @@ header nav ul li:hover a {
 
 /* ===== Hero / Apresentação ===== */
 .apresentacao {
-    height: 100vh;
-    /* Considere usar uma imagem de fundo que funcione bem em ambos os temas, ou usar filtros */
+    min-height: 100vh;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -158,10 +116,9 @@ header nav ul li:hover a {
     align-items: center;
     text-align: left;
     color: white;
-    /* Mantém branco para legibilidade sobre a imagem */
     position: relative;
-    padding: 0 40px;
-    gap: 40px;/* espaço entre foto e texto */
+    padding: 100px 40px 40px;
+    gap: 40px;
     flex-direction: row;
 }
 
@@ -173,6 +130,7 @@ header nav ul li:hover a {
     z-index: 998;
     object-fit: cover;
     border: 4px solid white;
+    flex-shrink: 0;
 }
 
 .apresentacao::before {
@@ -180,7 +138,6 @@ header nav ul li:hover a {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
-    /* Overlay para legibilidade */
 }
 
 .apresentacao h1,
@@ -205,8 +162,8 @@ h2 {
     font-size: 2rem;
     margin: 80px 0 40px;
     color: var(--h2-color);
-    /* Usa a variável */
     transition: color 0.3s ease;
+    padding: 0 20px;
 }
 
 /* ===== Experiências / Projetos (Cards) ===== */
@@ -222,24 +179,20 @@ h2 {
 .experiencias div,
 .projetos div {
     background: var(--card-bg);
-    /* Usa a variável */
     border-radius: 12px;
     box-shadow: 0 4px 8px var(--card-shadow);
-    /* Usa a variável */
     padding: 25px;
     flex: 1 1 280px;
+    max-width: 350px;
     text-align: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, color 0.3s ease;
-    /* Transição suave */
     color: var(--text-primary);
-    /* Garante que o texto dentro do card mude */
 }
 
 .experiencias div:hover,
 .projetos div:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px var(--card-shadow);
-    /* Usa a variável */
 }
 
 .img-experiencias {
@@ -253,7 +206,6 @@ h2 {
 .projetos i {
     font-size: 80px;
     color: var(--projetos-icon-color);
-    /* Usa a variável */
     margin-bottom: 15px;
     transition: color 0.3s ease;
 }
@@ -261,7 +213,6 @@ h2 {
 .projetos a {
     text-decoration: none;
     color: inherit;
-    /* Herda a cor do div pai */
     display: block;
 }
 
@@ -273,9 +224,7 @@ h2 {
 #academico {
     padding: 50px 20px;
     background-color: var(--bg-primary);
-    /* Fundo suave pra diferenciar */
     border-top: 2px solid #c72fcc20;
-    /* Manter cor fixa ou adicionar variável se quiser mudar */
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -284,7 +233,6 @@ h2 {
     margin-bottom: 30px;
     font-size: 2rem;
     color: var(--academico-h2-color);
-    /* Usa a variável */
     transition: color 0.3s ease;
 }
 
@@ -297,30 +245,25 @@ h2 {
 
 .academico div {
     flex: 1 1 250px;
+    max-width: 400px;
     background: var(--academico-div-bg);
-    /* Usa a variável */
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 10px var(--card-shadow);
-    /* Usa a variável */
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, color 0.3s ease;
     color: var(--text-primary);
-    /* Garante que o texto dentro do card mude */
 }
 
 .academico div:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px var(--card-shadow);
-    /* Usa a variável */
 }
 
 .academico h3 {
     font-size: 1.3rem;
     margin-bottom: 15px;
     color: var(--academico-h3-color);
-    /* Usa a variável */
     border-bottom: 2px solid #c72fcc50;
-    /* Manter fixa ou adicionar variável */
     padding-bottom: 5px;
     transition: color 0.3s ease;
 }
@@ -336,18 +279,15 @@ h2 {
     padding-left: 20px;
     position: relative;
     color: var(--academico-li-color);
-    /* Usa a variável */
     font-size: 0.95rem;
     transition: color 0.3s ease;
 }
 
-/* Bolinha decorativa antes dos itens */
 .academico ul li::before {
     content: "•";
     position: absolute;
     left: 0;
     color: var(--academico-h2-color);
-    /* Usa a variável */
     font-weight: bold;
     transition: color 0.3s ease;
 }
@@ -355,35 +295,17 @@ h2 {
 /* ===== Footer ===== */
 footer {
     background: var(--footer-bg);
-    /* Usa a variável */
     padding: 30px;
     text-align: center;
     box-shadow: 0 -2px 8px var(--card-shadow);
-    /* Usa a variável */
     margin-top: 60px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 footer p {
     color: var(--footer-text);
-    /* Usa a variável */
     font-size: 0.9rem;
     transition: color 0.3s ease;
-}
-
-/* ===== Responsividade ===== */
-@media (max-width: 768px) {
-    .apresentacao h1 {
-        font-size: 2rem;
-    }
-
-    .apresentacao p {
-        font-size: 1rem;
-    }
-
-    header {
-        padding: 10px 20px;
-    }
 }
 
 /* Botão do zap */
@@ -392,6 +314,16 @@ footer p {
     bottom: 20px;
     right: 20px;
     z-index: 999;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-button img {
+    width: 60px;
+    height: 60px;
 }
 
 /* Estilos para o botão de toggle de tema */
@@ -399,10 +331,8 @@ footer p {
     background: none;
     border: none;
     font-size: 1.5rem;
-    /* Ajuste o tamanho do ícone */
     cursor: pointer;
     color: var(--button-theme-color);
-    /* Cor do botão, pode ser inherit ou uma variável */
     padding: 0;
     transition: color 0.3s ease;
 }
@@ -411,15 +341,11 @@ footer p {
     color: var(--button-theme-hover-color);
 }
 
-/* Ajustes para os ícones de sol/lua */
 .theme-toggle-button .icon-light,
 .theme-toggle-button .icon-dark {
     display: inline-block;
-    /* Garante que ambos os ícones ocupem espaço inicialmente para evitar saltos */
-    /* Você pode ajustar o tamanho ou a cor específica para o ícone aqui se quiser */
 }
 
-/* Esconder um dos ícones baseado no tema (será controlado pelo JS) */
 body[data-theme="light"] .icon-dark {
     display: none;
 }
@@ -428,8 +354,252 @@ body[data-theme="dark"] .icon-light {
     display: none;
 }
 
-/* Se precisar de estilos específicos para a imagem de fundo na apresentação no modo escuro */
 body[data-theme="dark"] .apresentacao::before {
     background: rgba(0, 0, 0, 0.7);
-    /* Torna o overlay mais escuro no modo escuro */
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+/* Tablets grandes e laptops pequenos (até 1024px) */
+@media (max-width: 1024px) {
+    header {
+        padding: 15px 30px;
+    }
+
+    header nav ul {
+        gap: 20px;
+    }
+
+    .apresentacao {
+        padding: 100px 30px 40px;
+        gap: 30px;
+    }
+
+    .foto {
+        width: 250px;
+        height: 250px;
+    }
+
+    .apresentacao h1 {
+        font-size: 2.5rem;
+    }
+
+    .apresentacao p {
+        font-size: 1.1rem;
+    }
+
+    .experiencias,
+    .projetos {
+        padding: 0 30px 40px;
+    }
+}
+
+/* Tablets (até 768px) */
+@media (max-width: 768px) {
+    header {
+        padding: 12px 20px;
+        justify-content: center;
+    }
+
+    header nav ul {
+        gap: 15px;
+        justify-content: center;
+    }
+
+    header nav ul li a {
+        font-size: 0.9rem;
+    }
+
+    .fa-brands {
+        font-size: 20px;
+    }
+
+    .apresentacao {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 120px 20px 40px;
+        gap: 30px;
+    }
+
+    .foto {
+        width: 220px;
+        height: 220px;
+    }
+
+    .apresentacao h1 {
+        font-size: 2rem;
+    }
+
+    .apresentacao p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        margin: 60px 0 30px;
+    }
+
+    .experiencias,
+    .projetos {
+        padding: 0 20px 40px;
+        gap: 20px;
+    }
+
+    .experiencias div,
+    .projetos div {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .projetos i {
+        font-size: 60px;
+    }
+
+    #academico {
+        padding: 40px 15px;
+    }
+
+    .academico div {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .whatsapp-button img {
+        width: 50px;
+        height: 50px;
+    }
+
+    footer {
+        padding: 25px 20px;
+    }
+}
+
+/* Smartphones (até 480px) */
+@media (max-width: 480px) {
+    header {
+        padding: 10px 15px;
+    }
+
+    header nav ul {
+        gap: 10px;
+        font-size: 0.85rem;
+    }
+
+    header nav ul li a {
+        font-size: 0.8rem;
+    }
+
+    .fa-brands {
+        font-size: 18px;
+    }
+
+    .theme-toggle-button {
+        font-size: 1.2rem;
+    }
+
+    .apresentacao {
+        padding: 100px 15px 30px;
+        gap: 20px;
+    }
+
+    .foto {
+        width: 180px;
+        height: 180px;
+        border: 3px solid white;
+    }
+
+    .apresentacao h1 {
+        font-size: 1.7rem;
+        margin-bottom: 15px;
+    }
+
+    .apresentacao p {
+        font-size: 0.95rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin: 50px 0 25px;
+    }
+
+    .experiencias,
+    .projetos {
+        padding: 0 15px 30px;
+        gap: 15px;
+    }
+
+    .experiencias div,
+    .projetos div {
+        padding: 20px;
+    }
+
+    .projetos i {
+        font-size: 50px;
+    }
+
+    .projetos h3,
+    .experiencias h3 {
+        font-size: 1.1rem;
+    }
+
+    #academico {
+        padding: 30px 10px;
+    }
+
+    .academico div {
+        padding: 15px;
+    }
+
+    .academico h3 {
+        font-size: 1.1rem;
+    }
+
+    .academico ul li {
+        font-size: 0.9rem;
+    }
+
+    .whatsapp-button {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .whatsapp-button img {
+        width: 45px;
+        height: 45px;
+    }
+
+    footer {
+        padding: 20px 15px;
+        margin-top: 40px;
+    }
+
+    footer p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Dispositivos muito pequenos (até 360px) */
+@media (max-width: 360px) {
+    header nav ul {
+        gap: 8px;
+        font-size: 0.75rem;
+    }
+
+    .apresentacao h1 {
+        font-size: 1.5rem;
+    }
+
+    .apresentacao p {
+        font-size: 0.9rem;
+    }
+
+    .foto {
+        width: 150px;
+        height: 150px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
 }
