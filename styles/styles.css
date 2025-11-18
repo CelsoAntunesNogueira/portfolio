@@ -603,3 +603,40 @@ body[data-theme="dark"] .apresentacao::before {
         font-size: 1.3rem;
     }
 }
+
+/* ===== CORREÇÃO: Links das Experiências ===== */
+.experiencias div a {
+    color: var(--text-primary) !important;
+    text-decoration: none;
+    display: block;
+}
+
+.experiencias div a:hover {
+    color: var(--header-link-hover) !important;
+}
+
+/* Garantir que os textos dentro das experiências sejam visíveis */
+.experiencias div h3,
+.experiencias div p {
+    color: var(--text-primary);
+}
+
+/* No modo escuro, manter o texto legível */
+body[data-theme="dark"] .experiencias div a {
+    color: var(--text-primary) !important;
+}
+
+body[data-theme="dark"] .experiencias div h3,
+body[data-theme="dark"] .experiencias div p {
+    color: var(--text-primary);
+}
+
+/* No modo claro, texto em preto */
+body[data-theme="light"] .experiencias div a {
+    color: #333 !important;
+}
+
+body[data-theme="light"] .experiencias div h3,
+body[data-theme="light"] .experiencias div p {
+    color: #333;
+}
